@@ -1,0 +1,23 @@
+{
+  "name": "nextjs-styled-component-material-ui-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "export": "next export"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.10",
+    "@material-ui/icons": "^4.11.2",
+    "next": "9.1.1",
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
+    "react-responsive": "^8.2.0",
+    "styled-components": "4.4.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.6"
+  }
+}
