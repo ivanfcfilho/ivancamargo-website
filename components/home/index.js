@@ -4,6 +4,6 @@ import Layout from '../layout';
 
 export default function Home() {
   return (
-    <Typography>Home 2</Typography>
+    <h1 style={{ "margin": "auto", "width": "150px", "margin-top": "100px" }}>Building ...</h1>
   )
 }

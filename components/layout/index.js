@@ -4,6 +4,8 @@ import { Button, IconButton, Menu, MenuItem } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
 
+import { useRouter } from 'next/router';
+
 import {
   StyledAppBar,
   StyledToolbar,
@@ -15,17 +17,47 @@ import {
 
 import MediaQuery from 'react-responsive';
 
+const menuItems = [
+  {
+    "label": "About",
+    "path": "/about"
+  },
+  {
+    "label": "Writing",
+    "path": "/writing"
+  },
+  {
+    "label": "Portfolio",
+    "path": "/portfolio"
+  },
+  {
+    "label": "Contact",
+    "path": "/contact"
+  }
+]
+
 export default function Layout({ children }) {
 
   const [anchorEl, setAnchorEl] = useState(null);
+  const router = useRouter();
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleMenuClick = (path) => {
+    router.push(path)
+  }
+
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const renderMobileMenu = () => {
+    return menuItems.map((item) =>
+      <MenuItem onClick={() => handleMenuClick(item.path)}>{item.label}</MenuItem>
+    );
+  }
 
   const renderMobileContent = () => {
     return (
@@ -42,14 +74,18 @@ export default function Layout({ children }) {
           keepMounted
           open={Boolean(anchorEl)}
           onClose={handleClose}
+          onClick={handleClick}
         >
-          <MenuItem onClick={handleClose}>About</MenuItem>
-          <MenuItem onClick={handleClose}>Wiriting</MenuItem>
-          <MenuItem onClick={handleClose}>Portfolio</MenuItem>
-          <MenuItem onClick={handleClose}>Contact</MenuItem>
+          {renderMobileMenu()}
         </Menu>
       </>
     )
+  }
+
+  const renderBrowserMenu = () => {
+    return menuItems.map((item) =>
+      <Button onClick={() => handleMenuClick(item.path)} color="inherit">{item.label}</Button>
+    );
   }
 
   const renderBrowserContent = () => {
@@ -59,10 +95,7 @@ export default function Layout({ children }) {
           Ivan
         </StyledBrowserTypography>
         <ButtonsCotainer>
-          <Button color="inherit">About</Button>
-          <Button color="inherit">Wiriting</Button>
-          <Button color="inherit">Portfolio</Button>
-          <Button color="inherit">Contact</Button>
+          {renderBrowserMenu()}
         </ButtonsCotainer>
       </>
     )
