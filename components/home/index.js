@@ -1,9 +1,22 @@
-import { Typography } from '@material-ui/core';
-
-import Layout from '../layout';
+import {
+  RootContainer,
+  LeftContainer,
+  CenterContainer,
+  RightContainer
+} from './styles';
 
 export default function Home() {
   return (
-    <h1 style={{ "margin": "auto", "width": "150px", "margin-top": "100px" }}>Building ...</h1>
+    <RootContainer>
+      <LeftContainer>
+        LEFT
+      </LeftContainer>
+      <CenterContainer>
+        CENTER
+      </CenterContainer>
+      <RightContainer>
+        RIGHT
+      </RightContainer>
+    </RootContainer>
   )
 }

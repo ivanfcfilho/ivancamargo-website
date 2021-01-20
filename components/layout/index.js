@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, Divider } from '@material-ui/core';
+import { Button, Divider, Toolbar } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -17,7 +17,10 @@ import {
   StyledMobileIconButton,
   StyledMenu,
   StyledMenuItem,
-  StyledMobileMenuTypography
+  StyledMobileMenuTypography,
+  FooterAppBar,
+  BrowserCenterContainer,
+  MobileCenterContainer
 } from './styles';
 
 import MediaQuery from 'react-responsive';
@@ -100,6 +103,13 @@ export default function Layout({ children }) {
             </StyledMenu>
           </StyledToolbar>
         </StyledMobileAppBar>
+        <MobileCenterContainer>
+          {children}
+        </MobileCenterContainer>
+        <FooterAppBar color="primary" position="static">
+          <Toolbar>
+          </Toolbar>
+        </FooterAppBar>
       </>
     )
   }
@@ -123,6 +133,13 @@ export default function Layout({ children }) {
             </ButtonsCotainer>
           </StyledToolbar>
         </StyledBrowserAppBar>
+        <BrowserCenterContainer>
+          {children}
+        </BrowserCenterContainer>
+        <FooterAppBar color="primary" position="static">
+          <Toolbar>
+          </Toolbar>
+        </FooterAppBar>
       </>
     )
   }
@@ -135,7 +152,6 @@ export default function Layout({ children }) {
       <MediaQuery maxDeviceWidth={1080}>
         {renderMobileContent()}
       </MediaQuery>
-      {children}
     </RootContainer>
   )
 }

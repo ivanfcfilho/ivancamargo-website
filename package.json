@@ -11,9 +11,11 @@
   "dependencies": {
     "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.11.2",
+    "i18next": "^19.8.4",
     "next": "9.1.1",
     "react": "16.10.2",
     "react-dom": "16.10.2",
+    "react-i18next": "^11.8.5",
     "react-responsive": "^8.2.0",
     "styled-components": "4.4.0"
   },
