@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, IconButton, Menu, MenuItem } from '@material-ui/core';
+import { Button, Divider } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -63,12 +63,15 @@ export default function Layout({ children }) {
   }
 
   const renderMobileMenu = () => {
-    return menuItems.map((item) =>
-      <StyledMenuItem onClick={() => handleMenuClick(item.path)}>
-        <StyledMobileMenuTypography variant="h8">
-          {item.label}
-        </StyledMobileMenuTypography>
-      </StyledMenuItem>
+    return menuItems.map((item, index) =>
+      <>
+        <StyledMenuItem onClick={() => handleMenuClick(item.path)}>
+          <StyledMobileMenuTypography variant="h8">
+            {item.label}
+          </StyledMobileMenuTypography>
+        </StyledMenuItem>
+        {index < menuItems.length - 1 && <Divider />}
+      </>
     );
   }
 

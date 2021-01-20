@@ -57,6 +57,7 @@ export const StyledMenu = styled(Menu)`
     left: 1.0rem !important;
     width: 100%;
     padding: 0 !important;
+    background-color: #E0E0E0;
   }
 `
 
