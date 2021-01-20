@@ -7,12 +7,17 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useRouter } from 'next/router';
 
 import {
-  StyledAppBar,
+  StyledBrowserAppBar,
+  StyledMobileAppBar,
   StyledToolbar,
   ButtonsCotainer,
   RootContainer,
   StyledMobileTypography,
-  StyledBrowserTypography
+  StyledBrowserTypography,
+  StyledMobileIconButton,
+  StyledMenu,
+  StyledMenuItem,
+  StyledMobileMenuTypography
 } from './styles';
 
 import MediaQuery from 'react-responsive';
@@ -38,46 +43,60 @@ const menuItems = [
 
 export default function Layout({ children }) {
 
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState()
+
   const router = useRouter();
 
   const handleMenuClick = (path) => {
+    setMenuOpen(false);
     router.push(path)
   }
 
-  const handleClick = (e) => {
-    setAnchorEl(e.currentTarget);
-  };
+  const recordButtonPosition = (event) => {
+    setAnchorEl(event.currentTarget);
+    setMenuOpen(true);
+  }
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  let closeMenu = () => {
+    setMenuOpen(false);
+  }
 
   const renderMobileMenu = () => {
     return menuItems.map((item) =>
-      <MenuItem onClick={() => handleMenuClick(item.path)}>{item.label}</MenuItem>
+      <StyledMenuItem onClick={() => handleMenuClick(item.path)}>
+        <StyledMobileMenuTypography variant="h8">
+          {item.label}
+        </StyledMobileMenuTypography>
+      </StyledMenuItem>
     );
   }
 
   const renderMobileContent = () => {
     return (
       <>
-        <StyledMobileTypography variant="h6">
-          Ivan
-        </StyledMobileTypography>
-        <IconButton color="inherit" onClick={handleClick}>
-          <MenuIcon />
-        </IconButton>
-        <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-          onClick={handleClick}
-        >
-          {renderMobileMenu()}
-        </Menu>
+        <StyledMobileAppBar color="primary" position="static">
+          <StyledToolbar>
+            <StyledMobileTypography variant="h6">
+              Ivan
+            </StyledMobileTypography>
+            <StyledMobileIconButton color="inherit" onClick={recordButtonPosition}>
+              <MenuIcon />
+            </StyledMobileIconButton>
+            <StyledMenu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              getContentAnchorEl={null}
+              keepMounted
+              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+              transformOrigin={{ vertical: "top", horizontal: "center" }}
+              open={menuOpen}
+              onClose={closeMenu}
+            >
+              {renderMobileMenu()}
+            </StyledMenu>
+          </StyledToolbar>
+        </StyledMobileAppBar>
       </>
     )
   }
@@ -91,28 +110,28 @@ export default function Layout({ children }) {
   const renderBrowserContent = () => {
     return (
       <>
-        <StyledBrowserTypography variant="h6">
-          Ivan
-        </StyledBrowserTypography>
-        <ButtonsCotainer>
-          {renderBrowserMenu()}
-        </ButtonsCotainer>
+        <StyledBrowserAppBar color="primary" position="static">
+          <StyledToolbar>
+            <StyledBrowserTypography variant="h6">
+              Ivan
+            </StyledBrowserTypography>
+            <ButtonsCotainer>
+              {renderBrowserMenu()}
+            </ButtonsCotainer>
+          </StyledToolbar>
+        </StyledBrowserAppBar>
       </>
     )
   }
 
   return (
     <RootContainer>
-      <StyledAppBar color="primary" position="static">
-        <StyledToolbar>
-          <MediaQuery minDeviceWidth={1080}>
-            {renderBrowserContent()}
-          </MediaQuery>
-          <MediaQuery maxDeviceWidth={1080}>
-            {renderMobileContent()}
-          </MediaQuery>
-        </StyledToolbar>
-      </StyledAppBar>
+      <MediaQuery minDeviceWidth={1080}>
+        {renderBrowserContent()}
+      </MediaQuery>
+      <MediaQuery maxDeviceWidth={1080}>
+        {renderMobileContent()}
+      </MediaQuery>
       {children}
     </RootContainer>
   )

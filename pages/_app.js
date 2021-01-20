@@ -3,6 +3,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { ThemeProvider as MaterialThemeProvider } from '@material-ui/core/styles';
 import { theme } from '../theme'
 
+import GlobalStyle from '../styles/global';
 import Layout from '../components/layout';
 
 export default function App({ Component, pageProps }) {
@@ -15,7 +16,10 @@ export default function App({ Component, pageProps }) {
   return (
     <StyledThemeProvider theme={theme}>
       <MaterialThemeProvider theme={theme}>
-        <Layout><Component {...pageProps} /></Layout>
+        <GlobalStyle />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
 
       </MaterialThemeProvider>
     </StyledThemeProvider>

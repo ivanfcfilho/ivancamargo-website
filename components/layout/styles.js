@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
-import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  Button,
+  Menu,
+  MenuItem,
+  IconButton,
+  Toolbar,
+  Typography
+} from "@material-ui/core";
 
 export const StyledButton = styled(Button)`
   margin-left: 0.5rem
@@ -19,15 +27,44 @@ export const StyledBrowserTypography = styled(Typography)`
 export const StyledMobileTypography = styled(Typography)`
   padding-left: 1rem;
   flex-grow: 1;
+  font-size: 4rem !important;
 `
 
 export const RootContainer = styled.div`
-  flexGrow: 1,
+  flex-grow: 1,
 `
 
 export const ButtonsCotainer = styled.div`
   padding-right: 8rem;
 `
-export const StyledAppBar = styled(AppBar)`
+
+export const StyledBrowserAppBar = styled(AppBar)`
   height: 5rem;
+`
+
+export const StyledMobileAppBar = styled(AppBar)`
+  height: 12rem;
+`
+
+export const StyledMobileIconButton = styled(IconButton)`
+  transform: scale(3);
+`
+
+export const StyledMenu = styled(Menu)`
+  margin-top: 1.6rem;
+
+  .MuiPaper-root {
+    left: 1.0rem !important;
+    width: 100%;
+    padding: 0 !important;
+  }
+`
+
+export const StyledMenuItem = styled(MenuItem)`
+  height: 7rem;
+  font-size: xx-large !important;
+`
+
+export const StyledMobileMenuTypography = styled(Typography)`
+  font-size: 2rem;
 `
