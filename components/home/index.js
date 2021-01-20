@@ -1,22 +1,33 @@
+import { Typography } from '@material-ui/core';
+
 import {
   RootContainer,
-  LeftContainer,
-  CenterContainer,
-  RightContainer
+  ContentContainer,
+  CenterContainer
 } from './styles';
 
 export default function Home() {
   return (
     <RootContainer>
-      <LeftContainer>
-        LEFT
-      </LeftContainer>
+      <ContentContainer>
+        <Typography variant="h4">
+          Problem Solver
+        </Typography>
+        <Typography color="secondary">
+          What is your problem? I can solve it.
+        </Typography>
+      </ContentContainer>
       <CenterContainer>
-        CENTER
+
       </CenterContainer>
-      <RightContainer>
-        RIGHT
-      </RightContainer>
+      <ContentContainer>
+        <Typography variant="h4">
+          Quality & Productivity
+        </Typography>
+        <Typography color="secondary">
+          Expertise in develop solutions quickly with Quality.
+        </Typography>
+      </ContentContainer>
     </RootContainer>
   )
 }

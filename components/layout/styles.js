@@ -73,11 +73,3 @@ export const StyledMobileMenuTypography = styled(Typography)`
 export const FooterAppBar = styled(AppBar)`
   align-self: flex-end;
 `
-
-export const BrowserCenterContainer = styled.div`
-  min-height: calc(100vh - 144px);
-`
-
-export const MobileCenterContainer = styled.div`
-  min-height: calc(100vh - 250px);
-`
