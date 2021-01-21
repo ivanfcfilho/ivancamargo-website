@@ -18,7 +18,9 @@ import {
   StyledMenu,
   StyledMenuItem,
   StyledMobileMenuTypography,
-  FooterAppBar
+  FooterAppBar,
+  BrowserCenterContent,
+  MobileCenterContent
 } from './styles';
 
 import MediaQuery from 'react-responsive';
@@ -101,6 +103,9 @@ export default function Layout({ children }) {
             </StyledMenu>
           </StyledToolbar>
         </StyledMobileAppBar>
+        <MobileCenterContent>
+          {children}
+        </MobileCenterContent>
       </>
     )
   }
@@ -124,6 +129,9 @@ export default function Layout({ children }) {
             </ButtonsCotainer>
           </StyledToolbar>
         </StyledBrowserAppBar>
+        <BrowserCenterContent>
+          {children}
+        </BrowserCenterContent>
       </>
     )
   }
@@ -136,7 +144,6 @@ export default function Layout({ children }) {
       <MediaQuery maxDeviceWidth={1080}>
         {renderMobileContent()}
       </MediaQuery>
-      {children}
       <FooterAppBar color="primary" position="static">
         <Toolbar>
         </Toolbar>

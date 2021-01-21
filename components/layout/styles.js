@@ -39,7 +39,7 @@ export const ButtonsCotainer = styled.div`
 `
 
 export const StyledBrowserAppBar = styled(AppBar)`
-  height: 5rem;
+  min-height: 5.5rem;
 `
 
 export const StyledMobileAppBar = styled(AppBar)`
@@ -72,4 +72,13 @@ export const StyledMobileMenuTypography = styled(Typography)`
 
 export const FooterAppBar = styled(AppBar)`
   align-self: flex-end;
+  min-height: 2rem;
+`
+
+export const BrowserCenterContent = styled.div`
+  min-height: calc(100vh - 9.5rem);
+`
+
+export const MobileCenterContent = styled.div`
+  min-height: calc(100vh - 15.5rem);
 `

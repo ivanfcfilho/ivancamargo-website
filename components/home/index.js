@@ -3,29 +3,30 @@ import { Typography } from '@material-ui/core';
 import {
   RootContainer,
   ContentContainer,
-  CenterContainer
+  StyledTypography
 } from './styles';
 
 export default function Home() {
   return (
     <RootContainer>
       <ContentContainer>
-        <Typography variant="h4">
-          Problem Solver
-        </Typography>
-        <Typography color="secondary">
-          What is your problem? I can solve it.
+        <StyledTypography align="center" variant="h4">
+          Solutions
+        </StyledTypography>
+        <Typography align="center" color="secondary">
+          What is your problem? I can solve it. <br />
+          Automation of manual processes, websites, <br />
+          development of complex systems, etc.
         </Typography>
       </ContentContainer>
-      <CenterContainer>
-
-      </CenterContainer>
       <ContentContainer>
-        <Typography variant="h4">
-          Quality & Productivity
-        </Typography>
-        <Typography color="secondary">
-          Expertise in develop solutions quickly with Quality.
+        <StyledTypography align="center" variant="h4">
+          Quality<br />
+        </StyledTypography>
+        <Typography align="center" color="secondary">
+          Expertise in development of solutions <br />
+          with hight quality using the latest technologies  <br />
+          and best practices.<br />
         </Typography>
       </ContentContainer>
     </RootContainer>

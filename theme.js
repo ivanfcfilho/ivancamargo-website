@@ -24,4 +24,14 @@ export const theme = createMuiTheme({
       main: "#666666"
     }
   },
+  typography: {
+    "fontFamily": `"Helvetica Neue", Helvetica, Arial, Sans-serif`,
+    "fontWeightLight": 300,
+    "fontWeightRegular": 400,
+    "fontWeightMedium": 500,
+    "letterSpacing": "-0.07em",
+    h4: {
+      "fontSize": "3rem"
+    }
+  }
 })
