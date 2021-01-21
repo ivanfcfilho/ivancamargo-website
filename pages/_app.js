@@ -17,10 +17,12 @@ export default function App({ Component, pageProps }) {
     <StyledThemeProvider theme={theme}>
       <MaterialThemeProvider theme={theme}>
         <GlobalStyle />
-        <Layout fixedAppBar={true}>
+        <head>
+          <title>Ivan Camargo</title>
+        </head>
+        <Layout>
           <Component {...pageProps} />
         </Layout>
-
       </MaterialThemeProvider>
     </StyledThemeProvider>
   )

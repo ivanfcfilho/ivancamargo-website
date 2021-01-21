@@ -55,8 +55,6 @@ export const StyledMobileIconButton = styled(IconButton)`
 `
 
 export const StyledMenu = styled(Menu)`
-  margin-top: 1.6rem;
-
   .MuiPaper-root {
     left: 1.0rem !important;
     width: 100%;

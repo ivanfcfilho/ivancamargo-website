@@ -7,10 +7,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useRouter } from 'next/router';
 
 import {
+  ButtonsCotainer,
   StyledBrowserAppBar,
   StyledMobileAppBar,
   StyledToolbar,
-  ButtonsCotainer,
   RootContainer,
   StyledMobileTypography,
   StyledBrowserTypography,
@@ -64,12 +64,14 @@ export default function Layout({ children }) {
   const renderMobileMenu = () => {
     return menuItems.map((item, index) =>
       <>
-        <StyledMenuItem onClick={() => handleMenuClick(item.path)}>
+        <StyledMenuItem
+          key={`menu_item_${index}`}
+          onClick={() => handleMenuClick(item.path)}>
           <Typography variant="h8">
             {item.label}
           </Typography>
         </StyledMenuItem>
-        {index < menuItems.length - 1 && <Divider />}
+        { index < menuItems.length - 1 && <Divider />}
       </>
     );
   }
@@ -77,7 +79,7 @@ export default function Layout({ children }) {
   const renderMobileContent = () => {
     return (
       <>
-        <StyledMobileAppBar color="primary" position="static">
+        <StyledMobileAppBar key="menu-app-bar" color="primary" position="static">
           <StyledToolbar>
             <StyledMobileTypography variant="h6">
               Ivan
@@ -86,6 +88,7 @@ export default function Layout({ children }) {
               <MenuIcon />
             </StyledMobileIconButton>
             <StyledMenu
+              key="simple-menu"
               id="simple-menu"
               anchorEl={anchorEl}
               getContentAnchorEl={null}
@@ -105,8 +108,12 @@ export default function Layout({ children }) {
   }
 
   const renderBrowserMenu = () => {
-    return menuItems.map((item) =>
-      <Button onClick={() => handleMenuClick(item.path)} color="inherit">{item.label}</Button>
+    return menuItems.map((item, index) =>
+      <Button
+        key={`"menu_button_${index}`}
+        onClick={() => handleMenuClick(item.path)}
+        color="inherit">{item.label}
+      </Button>
     );
   }
 
@@ -126,10 +133,6 @@ export default function Layout({ children }) {
         {children}
       </>
     )
-  }
-
-  const renderFooter = () => {
-
   }
 
   return (
