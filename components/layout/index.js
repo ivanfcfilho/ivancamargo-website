@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, Divider, Toolbar } from '@material-ui/core';
+import { AppBar, Button, Divider, Toolbar, Typography } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -16,11 +16,7 @@ import {
   StyledBrowserTypography,
   StyledMobileIconButton,
   StyledMenu,
-  StyledMenuItem,
-  StyledMobileMenuTypography,
-  FooterAppBar,
-  BrowserCenterContent,
-  MobileCenterContent
+  StyledMenuItem
 } from './styles';
 
 import MediaQuery from 'react-responsive';
@@ -69,9 +65,9 @@ export default function Layout({ children }) {
     return menuItems.map((item, index) =>
       <>
         <StyledMenuItem onClick={() => handleMenuClick(item.path)}>
-          <StyledMobileMenuTypography variant="h8">
+          <Typography variant="h8">
             {item.label}
-          </StyledMobileMenuTypography>
+          </Typography>
         </StyledMenuItem>
         {index < menuItems.length - 1 && <Divider />}
       </>
@@ -103,9 +99,7 @@ export default function Layout({ children }) {
             </StyledMenu>
           </StyledToolbar>
         </StyledMobileAppBar>
-        <MobileCenterContent>
-          {children}
-        </MobileCenterContent>
+        {children}
       </>
     )
   }
@@ -129,11 +123,13 @@ export default function Layout({ children }) {
             </ButtonsCotainer>
           </StyledToolbar>
         </StyledBrowserAppBar>
-        <BrowserCenterContent>
-          {children}
-        </BrowserCenterContent>
+        {children}
       </>
     )
+  }
+
+  const renderFooter = () => {
+
   }
 
   return (
@@ -144,10 +140,10 @@ export default function Layout({ children }) {
       <MediaQuery maxDeviceWidth={1080}>
         {renderMobileContent()}
       </MediaQuery>
-      <FooterAppBar color="primary" position="static">
+      <AppBar color="primary" position="relative">
         <Toolbar>
         </Toolbar>
-      </FooterAppBar>
+      </AppBar>
     </RootContainer>
   )
 }

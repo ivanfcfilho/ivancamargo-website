@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
     <StyledThemeProvider theme={theme}>
       <MaterialThemeProvider theme={theme}>
         <GlobalStyle />
-        <Layout>
+        <Layout fixedAppBar={true}>
           <Component {...pageProps} />
         </Layout>
 

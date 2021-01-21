@@ -31,7 +31,11 @@ export const StyledMobileTypography = styled(Typography)`
 `
 
 export const RootContainer = styled.div`
-  flex-grow: 1;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+
 `
 
 export const ButtonsCotainer = styled.div`
@@ -39,7 +43,7 @@ export const ButtonsCotainer = styled.div`
 `
 
 export const StyledBrowserAppBar = styled(AppBar)`
-  min-height: 5.5rem;
+  height: 5.5rem;
 `
 
 export const StyledMobileAppBar = styled(AppBar)`
@@ -64,21 +68,4 @@ export const StyledMenu = styled(Menu)`
 export const StyledMenuItem = styled(MenuItem)`
   height: 7rem;
   font-size: xx-large !important;
-`
-
-export const StyledMobileMenuTypography = styled(Typography)`
-  font-size: 2rem;
-`
-
-export const FooterAppBar = styled(AppBar)`
-  align-self: flex-end;
-  min-height: 2rem;
-`
-
-export const BrowserCenterContent = styled.div`
-  min-height: calc(100vh - 9.5rem);
-`
-
-export const MobileCenterContent = styled.div`
-  min-height: calc(100vh - 15.5rem);
 `
