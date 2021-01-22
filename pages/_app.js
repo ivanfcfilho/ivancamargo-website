@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { ThemeProvider as MaterialThemeProvider } from '@material-ui/core/styles';
+import GlobalStyle from '../styles/global';
 import { theme } from '../theme'
 
-import GlobalStyle from '../styles/global';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import { ThemeProvider as MaterialThemeProvider } from '@material-ui/core/styles';
 import Layout from '../components/layout';
 
 export default function App({ Component, pageProps }) {

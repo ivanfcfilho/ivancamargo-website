@@ -35,7 +35,6 @@ export const RootContainer = styled.div`
   min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
-
 `
 
 export const ButtonsCotainer = styled.div`
@@ -51,11 +50,15 @@ export const StyledMobileAppBar = styled(AppBar)`
 `
 
 export const StyledMobileIconButton = styled(IconButton)`
-  transform: scale(3);
+  .MuiSvgIcon-root {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
 `
 
 export const StyledMenu = styled(Menu)`
   .MuiPaper-root {
+    top: 103px !important;
     left: 1.0rem !important;
     width: 100%;
     padding: 0 !important;

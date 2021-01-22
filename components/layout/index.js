@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
 
-import { AppBar, Button, Divider, Toolbar, Typography } from '@material-ui/core';
-
-import MenuIcon from '@material-ui/icons/Menu';
-
-import { useRouter } from 'next/router';
-
 import {
   ButtonsCotainer,
   StyledBrowserAppBar,
@@ -18,6 +12,13 @@ import {
   StyledMenu,
   StyledMenuItem
 } from './styles';
+
+
+import { AppBar, Button, Divider, Toolbar, Typography } from '@material-ui/core';
+
+import MenuIcon from '@material-ui/icons/Menu';
+
+import { useRouter } from 'next/router';
 
 import MediaQuery from 'react-responsive';
 
